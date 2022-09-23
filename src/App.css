@@ -1,0 +1,33 @@
+.App {
+    display: flex;
+    justify-content: center;
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+}
+
+
+.App:hover > *:hover {
+    transform: scale(1.1);
+    opacity: 1;
+}
+.buttonDiv{
+  margin-top: 10px;
+}
+.App > div {
+    margin-right: 50px;
+}
+.black {
+    display: flex;
+    color: black;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.red {
+    color: red;
+    font-size: 30px;
+    font-weight: bold;
+}
