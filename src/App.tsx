@@ -17,26 +17,24 @@ function App() {
     }
     return (
         <div className="App">
-            <Counter2
-                counter={counter}
-                set={setCounter}
-                setRemoveNumber={setStartValue}
-                maxValue={setMaxValue}
-                errorNumber={setError}
-                error={error}
-                startValue={setStartValue}
+                    <Counter2
+                        counter={counter}
+                        set={setCounter}
+                        setRemoveNumber={setStartValue}
+                        maxValue={setMaxValue}
+                        errorNumber={setError}
+                        error={error}
+                        startValue={setStartValue}
+                    />
 
-
-            />
-            <Counter
-                addTask={addTask}
-                counter={counter}
-                removeTask={removeTask}
-                error={error}
-                maxValue={maxValue}
-                startValue={startValue}
-            />
-
+                    <Counter
+                        addTask={addTask}
+                        counter={counter}
+                        removeTask={removeTask}
+                        error={error}
+                        maxValue={maxValue}
+                        startValue={startValue}
+                    />
         </div>
     );
 }

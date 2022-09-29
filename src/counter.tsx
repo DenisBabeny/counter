@@ -1,6 +1,8 @@
 import React from 'react';
 import s from './counter.module.css'
-
+import {Button} from "@material-ui/core";
+import RotateLeftIcon from '@material-ui/icons/RotateLeft';
+import AddIcon from '@material-ui/icons/Add';
 export type CounterType = {
     addTask: () => void
     counter: number
@@ -29,22 +31,29 @@ const Counter = (props: CounterType) => {
                 </div>
 
     return (
-        <div>
-            <div className={s.content}>
-                <div className={s.counter}>
-                    {errorValue}
-                    <div className={s.buttonDiv}>
-                        <button onClick={addNumber} className={s.button}
-                                disabled={disableButton()}>inc
-                        </button>
-                        <button onClick={removeCounterNumber} className={s.button}>reset
-                        </button>
+            <div>
+                <div className={s.content}>
+                    <div className={s.counter}>
+                        {errorValue}
+                        <div className={s.buttonDiv}>
+                            <Button variant={'contained'}
+                                    onClick={addNumber}
+                                    disabled={disableButton()}
+                                    className={s.button}
+                            >
+                            <AddIcon/>
+                            </Button>
+                            <Button variant={'contained'}
+                                    onClick={removeCounterNumber}
+                                    style={{marginLeft: '20px'}}
+                                    className={s.button}>
+                                <RotateLeftIcon/>
+                            </Button>
+                        </div>
                     </div>
                 </div>
+
             </div>
-
-        </div>
-
     );
 };
 

@@ -1,6 +1,7 @@
 import React, {FormEvent, useEffect, useState} from 'react';
 import s from "./counter.module.css";
-
+import {Button} from "@material-ui/core";
+import SettingsIcon from '@material-ui/icons/Settings';
 export type CounterValueType = {
     counter: number
     set: (startValue: number) => void
@@ -29,43 +30,45 @@ const Counter2 = (props: CounterValueType) => {
         props.errorNumber(maxValue === startValue || maxValue < startValue)
 
     }
-useEffect(()=>{
-    let valueAsString = localStorage.getItem('counterValue')
-    if(valueAsString){
-        let newValue = JSON.parse(valueAsString)
-        setValue(newValue)
-    }
+    useEffect(() => {
+        let valueAsString = localStorage.getItem('counterValue')
+        if (valueAsString) {
+            let newValue = JSON.parse(valueAsString)
+            setValue(newValue)
+        }
     }, [])
-useEffect(()=>{
-    localStorage.setItem('counterValue', JSON.stringify(startValue))
-}, [startValue])
+    useEffect(() => {
+        localStorage.setItem('counterValue', JSON.stringify(startValue))
+    }, [startValue])
     const disableButton = () => {
         return props.error
     }
     return (
-        <div className={s.content}>
-            <div className={s.counter}>
-                <div className={s.inputDiv}>
-                    <div className={s.inputText}>
-                        <span>max value:</span>
-                        <input type={"number"} value={maxValue} onChange={changeMaxValue}
-                               className={props.error ? s.inputActive : s.input}/>
+            <div className={s.content}>
+                <div className={s.counter}>
+                    <div className={s.inputDiv}>
+                        <div className={s.inputText}>
+                            <span>max value:</span>
+                            <input type={"number"} value={maxValue} onChange={changeMaxValue}
+                                   className={props.error ? s.inputActive : s.input}/>
+                        </div>
+
+                        <div className={s.inputText}>
+                            <span>start value:</span>
+                            <input type={"number"} value={startValue} onChange={ChangeValue}
+                                   className={props.error ? s.inputActive : s.input}/>
+                        </div>
+
+
                     </div>
-
-                    <div className={s.inputText}>
-                        <span>start value:</span>
-                        <input type={"number"} value={startValue} onChange={ChangeValue}
-                               className={props.error ? s.inputActive : s.input}/>
+                    <div className={s.buttonDiv}>
+                        <Button variant={'contained'} className={s.button} onClick={setResult}
+                                disabled={disableButton()}>
+                            <SettingsIcon/>
+                        </Button>
                     </div>
-
-
-                </div>
-                <div className={s.buttonDiv}>
-                    <button className={s.button} onClick={setResult} disabled={disableButton()}>Set
-                    </button>
                 </div>
             </div>
-        </div>
     );
 };
 

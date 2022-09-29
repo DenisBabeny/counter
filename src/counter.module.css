@@ -15,23 +15,16 @@
 .button {
     display: flex;
     justify-content: center;
-    background-color: #FFE4E1;
     width: 30%;
     height: 70%;
-    border: 2px solid red;
-    font-size: 20px;
-    border-radius: 5px;
-    margin-left: 20px;
-    margin-right: 20px;
-
 }
 
 .number {
     display: flex;
     justify-content: center;
-    background-color: #FFE4E1;
+    background-color:#d8e6e7;
     height: 100%;
-    border: 2px solid blue;
+    border: 2px solid #beabd1;
     border-radius: 10px;
 }
 
@@ -48,7 +41,7 @@
     align-items: center;
     height: 100%;
     margin-top: 5px;
-    border: 2px solid red;
+    border: 2px solid #beabd1;
     border-radius: 10px;
 }
 
@@ -79,8 +72,8 @@
     display: flex;
     justify-content: center;
     flex-direction: column;
-    background-color: #FFE4E1;
+    background-color: #d8e6e7;
     height: 100%;
-    border: 2px solid blue;
+    border: 2px solid #beabd1;
     border-radius: 10px;
 }
