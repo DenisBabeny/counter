@@ -16,18 +16,21 @@ const Counter2 = (props: CounterValueType) => {
     const [startValue, setValue] = useState<number>(0)
     const [maxValue, setMaxValue] = useState<number>(0)
     const ChangeValue = (e: FormEvent<HTMLInputElement>) => {
-        setValue(e.currentTarget.valueAsNumber)
-        props.errorNumber(e.currentTarget.valueAsNumber < 0)
+            props.errorNumber(e.currentTarget.valueAsNumber<0)
+            setValue(e.currentTarget.valueAsNumber)
     }
     const changeMaxValue = (e: FormEvent<HTMLInputElement>) => {
-        setMaxValue(e.currentTarget.valueAsNumber)
-        props.errorNumber(e.currentTarget.valueAsNumber < 0)
+
+            props.errorNumber(e.currentTarget.valueAsNumber<0)
+            setMaxValue(e.currentTarget.valueAsNumber)
+
+
     }
     const setResult = () => {
         props.set(startValue)
         props.setRemoveNumber(startValue)
         props.maxValue(maxValue)
-        props.errorNumber(maxValue === startValue || maxValue < startValue)
+        props.errorNumber(maxValue === startValue || maxValue < startValue || maxValue<0 || startValue<0)
 
     }
     useEffect(() => {
@@ -41,7 +44,7 @@ const Counter2 = (props: CounterValueType) => {
         localStorage.setItem('counterValue', JSON.stringify(startValue))
     }, [startValue])
     const disableButton = () => {
-        return props.error
+           return  props.error
     }
     return (
             <div className={s.content}>
